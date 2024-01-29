@@ -1,0 +1,10 @@
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\bin\Release\netcoreapp2.0\Talent.Common.deps.json
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\bin\Release\netcoreapp2.0\Talent.Common.dll
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\bin\Release\netcoreapp2.0\Talent.Common.pdb
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.csproj.AssemblyReference.cache
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.AssemblyInfoInputs.cache
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.AssemblyInfo.cs
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.csproj.CoreCompileInputs.cache
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.dll
+C:\Users\zhang\Desktop\reposCsharp\sprintProjects\CompetitionTask-cloudDeploy\Talent.Common\obj\Release\netcoreapp2.0\Talent.Common.pdb
