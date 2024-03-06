@@ -57,7 +57,7 @@ export default class ManageJob extends React.Component {
     };
 
     handleJobClose(jobId) {
-        var cookies = Cookies.get('talentAuthToken');
+        let cookies = Cookies.get('talentAuthToken');
         console.log("in handleJobClose: jobId: ", jobId)
         $.ajax({
             url: 'https://talenttal0129.azurewebsites.net/listing/listing/closeJob',
@@ -88,9 +88,9 @@ export default class ManageJob extends React.Component {
     };
 
     loadData() {
-        // var link = 'https://talenttal0129.azurewebsites.net/listing/listing/getSortedEmployerJobs';
-        var link = 'https://talenttal0129.azurewebsites.net/listing/listing/getEmployerJobs';
-        var cookies = Cookies.get('talentAuthToken');
+        // let link = 'https://talenttal0129.azurewebsites.net/listing/listing/getSortedEmployerJobs';
+        let link = 'https://talenttal0129.azurewebsites.net/listing/listing/getEmployerJobs';
+        let cookies = Cookies.get('talentAuthToken');
 
         $.ajax({
             url: link,
@@ -115,9 +115,37 @@ export default class ManageJob extends React.Component {
             }
         });
     }
+/*    async loadData() {
+        let link = 'https://talenttal0129.azurewebsites.net/listing/listing/getEmployerJobs';
+        let cookies = Cookies.get('talentAuthToken');
+        try {
+            let response = await fetch(link, {
+                method: "GET",
+                headers: {
+                    'Authorization': 'Bearer ' + cookies,
+                    'Content-Type': 'application/json'
+                }
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            let res = await response.json();
+            if (res.success === true) {
+                console.log("new my Jobs in ajax, res.jobData: ", res.myJobs);
+                this.setState({ loadJobs: res.myJobs });
+            } else {
+                TalentUtil.notification.show(res.message, "error", null, null);
+            }
+        } catch (error) {
+            console.log("Error fetching jobs: ", error);
+            TalentUtil.notification.show("Error fetching jobs", "error", null, null);
+        }
+    }*/
+
 
     loadNewData(data) {
-        var loader = this.state.loaderData;
+        let loader = this.state.loaderData;
         loader.isLoading = true;
         data[loaderData] = loader;
         this.setState(data, () => {
@@ -130,25 +158,29 @@ export default class ManageJob extends React.Component {
         });
     }
 
+    renderEmptyJobList() {
+        return (
+            <div>
+                <strong style={{ fontSize: '20px' }}>List of Jobs</strong>
+                <br />
+                <br />
+                <Icon name='filter' /> Filter: <b>Choose filter</b> <Icon name='caret down' />
+                <Icon name='calendar' /> Sort by date: <b>Newest first</b> <Icon name='caret down' />
+                <br />
+                <br />
+                No Jobs Found
+            </div>
+        )
+    }
+
     renderJobs() {
 
         if (!this.state.loadJobs || this.state.loadJobs.length === 0) {
             // [] return data
-            return (
-                <div>
-                    <strong style={{fontSize: '20px'}}>List of Jobs</strong>
-                    <br />
-                    <br />
-                    <Icon name='filter' /> Filter: <b>Choose filter</b> <Icon name='caret down' />
-                    <Icon name='calendar' /> Sort by date: <b>Newest first</b> <Icon name='caret down' />
-                    <br />
-                    <br />
-                    No Jobs Found
-                </div>
-            );
+            return this.renderEmptyJobList();
         }
 
-        const cardContainerStyle = {
+/*        const cardContainerStyle = {
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'space-between', // Adjust alignment between cards
@@ -161,27 +193,27 @@ export default class ManageJob extends React.Component {
             padding: '10px',
             border: '1px solid #ccc',
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        };
+        };*/
 
         return (
-            <div style={cardContainerStyle}>
+            <div className="ui job-listing cards">
                 {this.state.loadJobs.map(job => (
-                    <Card key={job.id} style={cardStyle}>
+                    <Card key={job.id} className="ui job-listing card">
                         <Card.Content>
                             <Card.Header>{job.title}</Card.Header>
                             <Card.Meta>{job.location.city}, {job.location.country}</Card.Meta>
-                            <Card.Description>{job.description}</Card.Description>
+                            <Card.Description className="description job-summary">{job.description}</Card.Description>
                         </Card.Content>
                         <Card.Content extra>
                             <Button color='red' onClick={() => this.handleJobClose(job.id)}>Expired</Button>
                             <div className="ui right floated buttons">
-                                <Button basic color='blue'>
+                                <Button basic color='blue' size='tiny' disabled>
                                     <Icon name='edit' /> Edit
                                 </Button>
-                                <Button basic color='blue'>
+                                <Button basic color='blue' size='tiny' disabled>
                                     <Icon name='close' /> Close
                                 </Button>
-                                <Button basic color='blue'>
+                                <Button basic color='blue' size='tiny' disabled>
                                     <Icon name='copy' /> Copy
                                 </Button>
                             </div>
