@@ -2,7 +2,7 @@
 
 ## Get Start
 
-This project is a demo project to learn ReactJs, C# Web Api, MongoDb in Talent Code Architecture.
+This project is a demo project to learn React.js, C# Web Api, MongoDB in Talent Code Architecture.
 This project has been deployed on Azure with the frontend demo URL: https://talentwebapp0129.azurewebsites.net/
 
 
